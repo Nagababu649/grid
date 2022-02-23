@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="loginstyle.css">
+
+    <script type="text/javascript">
+
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+
+        function formValidation() {
+
+
+            var errVal = 0;
+
+            var uname = document.getElementById('uname').value;
+            var unameError = "";
+            if (uname.trim() == "") {
+                unameError = "Please enter this field";
+                document.getElementById('unameError').innerHTML = unameError;
+                errVal = 0;
+            }
+            else {
+                document.getElementById('unameError').innerHTML = "";
+                errVal = 1;
+            }
+
+
+            var pwd = document.getElementById('pwd').value;
+
+            var pwdError = "";
+            if (pwd.trim() == "") {
+                var pwdError = "Please enter password";
+                document.getElementById('pwdError').innerHTML = pwdError;
+                errVal = 0
+            }
+            else {
+                document.getElementById('pwdError').innerHTML = "";
+                errVal = 1
+
+            }
+
+            if (errVal) {
+
+            }
+            else
+                return false;
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+
+    <table class="center " style="width: 50%">
+        <form name="loginpage" method="post">
+            <tr>
+                <td>
+                    <div>
+                        <div><img height="50px" width="50px" src="E:\myphotos\1576565568249.jpeg" /></div>
+                        <div class="titleCls">
+                            <h1>Login Form</h1>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%">
+
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" class="inputStyle" id="uname" placeholder="Enter Username" name="uname"><br><br>
+                    <span id="unameError" style="color: red;"></span>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%">
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" class="inputStyle" placeholder="Enter Password" id="pwd" name="psw"><br><br>
+                    <span id="pwdError" style="color: red;"></span>
+
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100%">
+                    <button type="submit" class="loginbtn" onClick="return formValidation()">Login</button>
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <br><br>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="checkbox" name="remember">
+                    <label>Remember me </label>
+                </td>
+            </tr>
+
+            <!-- </div> -->
+
+
+            <tr>
+                <td>
+                    <span class="psw" class=>Forgot <a href="#">password?</a></span>
+
+                </td>
+            </tr>
+
+        </form>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+ 
+    .header {
+      background-color: rgba(122, 158, 158, 0.986);
+      text-align: center;
+      width: 100%;
+      color: rgb(54, 50, 50);
+    }
+
+    .img {
+      padding: 3px;
+      background: rgba(134, 97, 204, 0.911);
+      border-radius: 50%;
+    }
+
+    .img2 {
+      height: 85px;
+      width: 500px;
+    }
+
+    .home {
+      max-height: 500px;
+      width: 100%;
+    }
+
+    .body {
+      /* background-image: url('PicsArt_08-01-12.45.52.jpg.');
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  background-size: cover; */
+      background-color: rgba(125, 202, 198, 0.918);
+      border-style: double;
+    }
+
+    .navbar {
+      width: 100%;
+    }
+
+    .navbar a {
+      /* float: left; */
+      display: block;
+      color: rgb(245, 10, 10);
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar h4 {
+      float: center;
+      display: block;
+      color: rgba(52, 39, 226, 0.863);
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      text-size-adjust: 100%;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .navbar a.active {
+
+      background-color: #666;
+      color: white;
+
+    }
+
+    .logout {
+      float: right;
+      background-color: #3d1fe7;
+      color: #e7dbe1;
+      padding: 14px 20px;
+      margin: 4px 0;
+      border: none;
+      cursor: pointer;
+      /* width: 10%; */
+      border-radius: 5px;
+      border-style:solid;
+
+    }
+
+
+    /* @media (min-width: 767px)  {
+    .header {
+        width: 100%;
+    } 
+    
+}  */
+    @media (min-width: 100px) and (max-width: 767px) {
+      .header {
+        display: 100%;
+      }
+
+      .logout {
+        display: 100%;
+      }
+
+      .menus {
+        width: 100%;
+      }
+
+    }
+
+
+    .topLayer {
+      display: flex;
+
+    }
+
+    @media (min-width: 767px) and (max-width: 3000px) {
+      
+      .container {
+        display: flex;
+
+      }
+      .menus {
+        width: 16%;
+      }
+
+    }
+    
+  

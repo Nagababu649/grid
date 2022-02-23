@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration form</title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" href ="cssstyle.css">
+
+    <script type ="text/javascript">
+
+
+        function validateEmail(email) 
+        {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+
+        //window.onload = function() {
+
+            //formValidation();
+            
+        function formValidation() {
+
+
+            var errVal = 0;
+
+
+            var email =  document.getElementById('email').value;
+            var emailError = "";
+            if (email.trim() == "")  {
+                emailError = "Please enter e-mail address";
+                document.getElementById('emailError').innerHTML = emailError;
+                errVal = 0;
+            } 
+            else if(!validateEmail(email))
+            {
+                emailError = "Please enter a valid e-mail address";
+                document.getElementById('emailError').innerHTML = emailError;
+                errVal = 0;
+            }
+            else {
+                document.getElementById('emailError').innerHTML = "";
+                errVal = 1;
+            }
+
+            var fname =  document.getElementById('fname').value;
+            var fnameError = "";
+            if (fname.trim() == "")  {
+                fnameError = "Please enter this field";
+                document.getElementById('fnameError').innerHTML = fnameError;
+                errVal = 0;
+            } 
+            else {
+                document.getElementById('fnameError').innerHTML = "";
+                errVal = 1;
+            }
+             
+
+            var lname =  document.getElementById('lname').value;
+            var lnameError = "";
+            if (lname.trim() == "")  {
+                lnameError = "Please enter this field";
+                document.getElementById('lnameError').innerHTML = lnameError;
+                errVal = 0;
+            } 
+            else {
+                document.getElementById('lnameError').innerHTML = "";
+                errVal = 1;
+            }
+
+            
+
+            var pwd =  document.getElementById('pwd').value;
+            
+            var pwdError = "";
+            if (pwd.trim() == "")  {
+                var pwdError = "Please enter password";
+                document.getElementById('pwdError').innerHTML = pwdError;
+                errVal = 0
+            }                 
+            else {
+                document.getElementById('pwdError').innerHTML = "";
+                errVal = 1
+
+            }
+
+
+
+            var pwdconf =  document.getElementById('pwdconf').value;
+            var pwdconfError = "";
+            if (pwdconf.trim() == "")  {
+                pwdconfError = "Please enter password";
+                document.getElementById('pwdconfError').innerHTML = pwdconfError;
+                errVal = 0
+            } 
+            else if(pwd.trim() != pwdconf.trim()) 
+            {
+                pwdconfError = "Please enter matched password";
+                document.getElementById('pwdconfError').innerHTML = pwdconfError;
+                errVal = 0
+            }                
+            else {
+                document.getElementById('pwdconfError').innerHTML = "";
+                errVal = 1
+            }  
+              
+
+            
+            var address =  document.getElementById('address').value;
+            var addressError = "";
+            if (address.trim() == "")  {
+                addressError = "Please enter this field";
+                document.getElementById('addressError').innerHTML = addressError;
+                errVal = 0;
+            } 
+            else {
+                document.getElementById('addressError').innerHTML = "";
+                errVal = 1;
+            } 
+             
+            
+
+            
+            
+            var phone =  document.getElementById('phone').value;
+            var phoneError = "";
+            if (phone.trim() == "")  {
+                phoneError = "Please enter this field";
+                document.getElementById('phoneError').innerHTML = phoneError;
+                errVal = 0;
+            } 
+            else {
+                document.getElementById('phoneError').innerHTML = "";
+                errVal = 1;
+            }
+              
+            //    var course =  document.getElementById('course').value;
+            // var courseError = "";
+            // if (course.trim() == "")  {
+            //     courseError = "Please select your Course";
+            //     document.getElementById('courseError').innerHTML = courseError;
+            //     errVal = 0;
+            // } 
+            // else {
+            //     document.getElementById('courseError').innerHTML = "";
+            //     errVal = 1;
+            // }
+
+
+            var male =  document.getElementsByName('gender');
+            var genderError = "";
+         
+            if (male[0].checked == false && male[1].checked == false) {
+                genderError = "Please select your gender";
+                document.getElementById('genderError').innerHTML = genderError;
+                errVal = 0;
+            } 
+            else {
+                document.getElementById('genderError').innerHTML = "";
+                errVal = 1;
+            }
+
+            var date_str = document.getElementById('birthdaytime').value;
+
+
+
+            var date_error = "";
+            if (date_str.trim() == "") {
+                date_error = "Please enter this field";
+                document.getElementById('date_error').innerHTML = date_error;
+                errVal = 0;
+            }
+            else {
+                document.getElementById('date_error').innerHTML = "";
+                errVal = 1;
+            }
+
+
+
+            
+            var qerr = "Please select an option";
+            var e = document.getElementById("qualification");
+            var strUser = e.options[e.selectedIndex].value;
+            //if you need text to be compared then use
+            var strUser1 = e.options[e.selectedIndex].text;
+            if(strUser==0) //for text use if(strUser1=="Select")
+            {
+                document.getElementById('qualificationError').innerHTML = qerr;
+                errVal = 0;            
+            }
+            else {
+                document.getElementById('qualificationError').innerHTML = "";
+                errVal = 1;
+            }
+
+            var qerr = "Please select any two options";
+            var values = 0;
+            for (var i = 0; i < document.getElementById('qualification1').length; i++) {
+                if (document.getElementById('qualification1')[i].selected == true) {
+                    values++;
+                }
+            }
+            console.log(document.getElementById('qualification1'));
+
+            if (values == 0) 
+            {
+                document.getElementById('qualification1Error').innerHTML = qerr;
+                errVal = 0;
+            }
+            else {
+                document.getElementById('qualification1Error').innerHTML = "";
+                errVal = 1;
+            }
+
+
+
+            var java =  document.getElementsByName('course');
+            var courseError = "";
+         
+            if (java[0].checked == false && java[1].checked == false && java[2].checked == false && java[3].checked == false) {
+                courseError = "Please select minimum one course";
+                document.getElementById('courseError').innerHTML = courseError;
+                errVal = 0;
+            } 
+            else {
+                document.getElementById('courseError').innerHTML = "";
+                errVal = 1;
+            }
+            
+
+            if(errVal) {
+                
+            } 
+            else            
+            return false;
+
+            
+                
+        }
+
+
+        
+        var specialKeys = new Array();
+        specialKeys.push(8); //Backspace
+        function IsNumeric(e) {
+            var keyCode = e.which ? e.which : e.keyCode
+            var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+            document.getElementById("phoneError").style.display = ret ? "none" : "inline";
+            return ret;
+        }
+
+       
+        function fileValidation() {
+            var fileInput = 
+                document.getElementById('file');
+              
+            var filePath = fileInput.value;
+          
+            // Allowing file type
+            var allowedExtensions = 
+            /(\.doc|\.docx|\.odt|\.pdf|\.tex|\.txt|\.rtf|\.wps|\.wks|\.wpd)$/i;
+              
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type');
+                fileInput.value = '';
+                return false;
+            } 
+        }
+        
+        
+    </script>
+</head>
+
+<body >
+
+    <div class="img1">
+
+    <table class="center " style="width: 50%">   
+        <form  name="inputfieldsnew" method="post">
+            <tr>
+                <td >
+                    <div class="newcontainer" >
+                        <div class="firstDiv"><img height="50px" width="50px" src="E:\myphotos\1576565568249.jpeg" /></div>
+                        <div class="secondDiv" class="titleCls"  >
+                            <h1  >Registration Form</h1>
+                        </div>
+                    </div>   
+
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="fname">First name:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <input class="inputStyle" type="text" id="fname" name="fname" /><br>
+                            <span id="fnameError" style="color: red;"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="lname">Last name:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <input class="inputStyle" type="text" id="lname" name="lname" /><br>
+                            <span id="lnameError" style="color: red;"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="email">Enter your email:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <input class="inputStyle" type="email" id="email" name="email" /><br>
+                            <span id="emailError" style="color: red;"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="pwd">Create Password:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <input class="inputStyle" type="password" id="pwd" name="pwd" /><br>
+                            <span id="pwdError" style="color: red;"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="pwd">Conform Password:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <input class="inputStyle" type="password" id="pwdconf" name="pwdconf" /><br>
+                            <span id="pwdconfError" style="color: red;"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="phone">Phone number:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <input onkeypress="return IsNumeric(event);" ondrop="return false;"  onpaste="return false;" class="inputStyle" type="text" id="phone" name="phone" placeholder="Enter a phone number"
+                        pattern="[0-9]*" maxlength="10" /><br>
+                            <span id="phoneError" style="color: red;"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="radio">Gender:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <input type="radio" id="male" name="gender" value="male" >
+                            <label for="radio">Male</label>
+                            <input type="radio" id="female" name="gender" value="female"  >
+                            <label for="radio">Female</label>
+                            <br>
+                            <span id="genderError" style="color: red;"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="birthdaytime">Date of Birth (date and time):</label>
+                        </div>
+                        <div class="secondDiv">
+                            <input class="inputStyle" type="datetime-local" id="birthdaytime" name="birthday" value=""><br>
+                            <span id="date_error" style="color: red;"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="dropdown">Qualification:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <select class="inputStyle" id="qualification" name="qualification"> 
+                                <option value="0">-Select-</option>
+                                <option value="Btech">Btech</option>
+                                <option value="Bsc">Bsc</option>
+                                <option value="Bcom">Bcom</option>
+                                <option value="Diploma">Diploma</option> </select><br>
+                                <span id="qualificationError" style="color: red;">
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="dropdown">Qualification:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <select class="inputStyle" name="qualification1[]" id="qualification1" multiple>
+                                <option value="pg">PG</option>
+                                <option value="ug">UG</option>
+                                <option value="diploma">Diploma</option>
+                                <option value="hsc">HSC</option>
+                            </select><br>
+                            <span id="qualification1Error" style="color: red;"></span>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="file">Select a file:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <input class="inputStyle" type="file" id="file" name="file" onchange="return fileValidation()"><br>
+                            <span id="file" style="color: red;"></span>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="address">Address:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <textarea class="inputStyle" id="address" name="address" rows="4" cols="50"></textarea><br>
+                    <span id="addressError" style="color: red;"></span>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv">
+                            <label for="course">Course:</label>
+                        </div>
+                        <div class="secondDiv">
+                            <input type="checkbox" id="java" name="course" value="java">
+                            <label for="course"> Java </label> &nbsp;&nbsp;
+                            <input type="checkbox" id="python" name="course" value="python">
+                            <label for="course"> Python </label> &nbsp;&nbsp;
+                            <input type="checkbox" id="c++" name="course" value="c++">
+                            <label for="course"> C++ </label> &nbsp;&nbsp;
+                            <input type="checkbox" id="c" name="course" value="c">
+                            <label for="course"> C </label><br>
+                            <span id="courseError" style="color: red;"></span>
+                            
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 100%" >
+                    <div class="newcontainer">
+                        <div class="firstDiv"></div>
+                        <div class="secondDiv">
+                            <input  onClick="return formValidation()" type="button" value="Submit">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+   </form>
+
+</div>
+</body>
+
+</html>

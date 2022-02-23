@@ -1,0 +1,61 @@
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+    background: #d0eef3  ;
+    /* background-image: url("1576565568249.jpeg") ; */
+    padding: 20px;
+    border-radius: 5px;
+    border-style: double ;
+}
+.container{
+     display: flex ;
+
+}
+.titleCls {
+    text-align: center;
+    color:blue;
+}
+
+.inputStyle {
+    width: 100%;
+    /* background-color: rgba(236, 236, 229, 0.623); */
+    border-radius: 5px;
+}
+table tr td {
+    height: 30px;
+}
+.errorCls {
+    color: red;
+    font-size: 14px;
+}
+.courseError{
+    color: red;
+}
+
+/* .textStyle{
+    width: 100%;
+} */
+
+@media screen and (min-width: 768px) {
+    .textStyle{
+        display: flex ;
+    }    
+
+} 
+
+@media (min-width: 100px) and (max-width: 767px) {
+    .firstDiv, .secondDiv {
+        width: 100%;
+    } 
+    
+} 
+
+@media (min-width: 768px) and (max-width: 3000px) {
+    .firstDiv, .secondDiv {
+        width: 50%;
+    } 
+    .newcontainer {
+        display: flex;
+    }
+    
+}
